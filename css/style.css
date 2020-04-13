@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Style list items */
+
+.item {
+  background-color: #CAD2C5;
+  color: #52796F;
+  display: flex;
+    align-items: center;
+  margin-top: 2px;
+  width: 100%;
+}
+
+/* Style icon buttons */
+.btn {
+  background-color: #CAD2C5;
+  border: none;
+  color: #52796F;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.items .btn:active {
+  background: radial-gradient(circle, #52796F 0%, #CAD2C5 80%);
+}
+
+.btn span {
+  font-size: 1.5em;
+}
+
+/* Style item name */
+
+input {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  font-size: 1.25em;
+  -webkit-transition: border-bottom 1s;
+          transition: border-bottom 1s;
+  width: 100%;
+  min-width: 100px;
+}
+
+/* Style according HTML */
+
+body {
+  background-color: #84A98C;
+  font-size: 100%;
+  font-family: 'PT Sans', Impact, sans-serif;
+  min-width: 320px;
+}
+
+/* --------HEADER-------- */
+
+header {
+  background-color: #354F52;
+  color: #CAD2C5;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+header input {
+  border-bottom: 2px solid #354F52;
+}
+
+header input:focus {
+  border-bottom: 2px solid #CAD2C5;
+}
+
+/* --------MAIN-------- */
+main {
+  padding: 60px 4px 4px;
+}
+
+/* --------ADD SECTION-------- */
+
+.add {
+  background-color: #52796F;
+  color: #CAD2C5;
+}
+
+.add .btn {
+  background-color: #52796F;
+  color: #CAD2C5;
+}
+
+.add .btn:active {
+  background: radial-gradient(circle, #354F52 0%, #52796F 80%);
+}
+
+.add input {
+  border-bottom: 2px solid #CAD2C5;
+  width: 80%;
+}
+
+.add ::-webkit-input-placeholder { /* Edge */
+  color: #CAD2C5;
+}
+
+.add ::placeholder {
+  color: #CAD2C5;
+}
+
+/* --------ITEMS SECTION-------- */
+
+.items {
+  margin-top: 5px;
+}
+
+section .item input {
+  border-bottom: 2px solid #CAD2C5;
+}
+
+section .item input:focus {
+  border-bottom: 2px solid #354F52;
+}
+
+/* --------COMPLETED ITEMS SECTION-------- */
+
+h2 {
+  color: #CAD2C5;
+  text-align: center;
+}
+
+.completed-items .item {
+  text-decoration: line-through;
+}
+
+@media only screen and (min-width: 510px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  main {
+    padding: 75px 8px 4px;
+  }
+
+  .item {
+    margin-top: 5px;
+    padding: 4px 0;
+  }
+
+  .items {
+    margin-top: 8px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    margin: 0 auto;
+    width: 592px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  body {
+    font-size: 2em;
+  }
+
+  header {
+    padding: 30px;
+  }
+
+  main {
+    padding: 140px 8px 8px;
+    width: 90%;
+  }
+
+  .item {
+    margin-top: 10px;
+    padding: 16px 0;
+  }
+
+  .items {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 1360px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .items,
+  .completed-items {
+    width: 46%;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  body {
+    font-size: 2.75em;
+  }
+}
