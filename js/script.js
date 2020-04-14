@@ -118,11 +118,13 @@ function hideAnimation(target, func, boolean) {
 
 // check if there are completed items so can show title for them
 function showTitle() {
+  let titleClass = doneTitle.classList;
+
   if (doneTitle.nextElementSibling &&
-    doneTitle.classList.contains('hide')) {
-    doneTitle.classList.remove('hide');
+    titleClass.contains('hide')) {
+    titleClass.remove('hide');
   } else if (!doneTitle.nextElementSibling &&
-    !doneTitle.classList.contains('hide')) {
-    doneTitle.classList.add('hide');
+    !titleClass.contains('hide')) {
+    titleClass.add('hide');
   }
 }
