@@ -3,13 +3,19 @@
   outline: none;
 }
 
-/* Style list items */
+body {
+  background-color: #84A98C;
+  font-size: 100%;
+  font-family: 'PT Sans', sans-serif;
+  min-width: 320px;
+}
 
+/* Style list items */
 .item {
   background-color: #CAD2C5;
   color: #52796F;
   display: flex;
-    align-items: center;
+  align-items: center;
   margin-top: 2px;
   width: 100%;
 }
@@ -29,32 +35,25 @@
 
 .btn span {
   font-size: 1.5em;
+  line-height: unset;
 }
 
 /* Style item name */
-
 input {
   background-color: inherit;
   border: none;
   color: inherit;
   font-size: 1.25em;
   -webkit-transition: border-bottom 1s;
-          transition: border-bottom 1s;
+  transition: border-bottom 1s;
   width: 100%;
   min-width: 100px;
 }
 
 /* Style according HTML */
 
-body {
-  background-color: #84A98C;
-  font-size: 100%;
-  font-family: 'PT Sans', Impact, sans-serif;
-  min-width: 320px;
-}
 
 /* --------HEADER-------- */
-
 header {
   background-color: #354F52;
   color: #CAD2C5;
@@ -78,7 +77,6 @@ main {
 }
 
 /* --------ADD SECTION-------- */
-
 .add {
   background-color: #52796F;
   color: #CAD2C5;
@@ -98,7 +96,8 @@ main {
   width: 80%;
 }
 
-.add ::-webkit-input-placeholder { /* Edge */
+.add ::-webkit-input-placeholder {
+  /* Edge */
   color: #CAD2C5;
 }
 
@@ -107,7 +106,6 @@ main {
 }
 
 /* --------ITEMS SECTION-------- */
-
 .items {
   margin-top: 5px;
 }
@@ -121,15 +119,15 @@ section .item input:focus {
 }
 
 /* --------COMPLETED ITEMS SECTION-------- */
-
 h2 {
   color: #CAD2C5;
   text-align: center;
 }
 
-.completed-items .item {
-  text-decoration: line-through;
+.hide {
+  opacity: 0;
 }
+/* -------MEDIA QUERIES-------- */
 
 @media only screen and (min-width: 510px) {
   body {
@@ -157,7 +155,7 @@ h2 {
   }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1360px) {
   body {
     font-size: 2em;
   }
@@ -167,6 +165,9 @@ h2 {
   }
 
   main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 140px 8px 8px;
     width: 90%;
   }
@@ -179,17 +180,9 @@ h2 {
   .items {
     margin-top: 20px;
   }
-}
-
-@media only screen and (min-width: 1360px) {
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
 
   .items,
-  .completed-items {
+  .done-items {
     width: 46%;
   }
 }
