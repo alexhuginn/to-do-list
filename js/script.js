@@ -1,7 +1,7 @@
 let addButton = document.getElementsByTagName('button')[0]; // button for adding new items
 let itemsSection = document.getElementsByClassName('items')[0]; // section with items
+let doneItemsSection = document.getElementsByClassName('done-items')[0];
 let itemName = document.getElementsByTagName('input')[1]; // name of item
-let mainNode = document.getElementsByTagName('main')[0];
 let doneTitle = document.getElementsByTagName('h2')[0]; //'Completed items'
 
 // Create new todo item when press "+" button
@@ -9,7 +9,8 @@ addButton.addEventListener('click', addItem);
 // Create new todo item when press "Enter key"
 itemName.addEventListener('keypress', pressEnter);
 // When press 'check' or 'delete' button
-mainNode.addEventListener('click', pressButton);
+itemsSection.addEventListener('click', pressButton);
+doneItemsSection.addEventListener('click', pressButton);
 
 // ------------------FUNCTIONS
 
@@ -20,6 +21,9 @@ function pressEnter(e) {
 }
 
 function pressButton(e) {
+
+  if (e.target.tagName !== "SPAN") return;
+
   let button = e.target.parentNode;
   let targetItem = button.parentNode;
   let targetSection = targetItem.parentNode;
