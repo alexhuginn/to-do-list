@@ -7,16 +7,19 @@ let doneTitle = document.getElementsByTagName('h2')[0]; //'Completed items'
 // Create new todo item when press "+" button
 addButton.addEventListener('click', addItem);
 // Create new todo item when press "Enter key"
-itemName.addEventListener('keypress', function(e) {
+itemName.addEventListener('keypress', pressEnter);
+// When press 'check' or 'delete' button
+mainNode.addEventListener('click', pressButton);
+
+// ------------------FUNCTIONS
+
+function pressEnter(e) {
   if (e.key === 'Enter') {
     addItem();
   }
-});
+}
 
-
-// When press 'check' or 'delete' button
-mainNode.addEventListener('click', (e) => {
-
+function pressButton(e) {
   let button = e.target.parentNode;
   let targetItem = button.parentNode;
   let targetSection = targetItem.parentNode;
@@ -25,44 +28,42 @@ mainNode.addEventListener('click', (e) => {
   let delButton = targetItem.getElementsByTagName('button')[1].firstElementChild;
 
   switch (e.target) {
-    // when press 'delete button'
-    case delButton: {
-      hideAnimation(targetItem, () => {
-        targetItem.remove();
-        showTitle();
-      }, true);
-    }
+  // when press 'delete button'
+  case delButton: {
+    hideAnimation(targetItem, () => {
+      targetItem.remove();
+      showTitle();
+    }, true);
+  }
     break;
 
     // when press 'check or uncheck button'
-    case checkButton: {
-      let whereToMove;
-      if (targetSection.nextElementSibling) {
-        whereToMove = targetSection.nextElementSibling; //check items
-      } else {
-        whereToMove = targetSection.previousElementSibling; //uncheck items
-      }
-      //hide item before moving
-      hideAnimation(targetItem, () => {
-        whereToMove.appendChild(targetItem); // move item
-        showTitle();
-        // decorate check button
-        button.classList.toggle('unchecked');
-
-        if (button.classList.contains('unchecked')) {
-          button.firstElementChild.textContent = 'check_box_outline_blank';
-        } else {
-          button.firstElementChild.textContent = 'check_box';
-        }
-        //show item after moving
-        hideAnimation(targetItem, () => {}, false);
-      }, true);
+  case checkButton: {
+    let whereToMove;
+    if (targetSection.nextElementSibling) {
+      whereToMove = targetSection.nextElementSibling; //check items
+    } else {
+      whereToMove = targetSection.previousElementSibling; //uncheck items
     }
+    //hide item before moving
+    hideAnimation(targetItem, () => {
+      whereToMove.appendChild(targetItem); // move item
+      showTitle();
+      // decorate check button
+      button.classList.toggle('unchecked');
+
+      if (button.classList.contains('unchecked')) {
+        button.firstElementChild.textContent = 'check_box_outline_blank';
+      } else {
+        button.firstElementChild.textContent = 'check_box';
+      }
+      //show item after moving
+      hideAnimation(targetItem, () => {}, false);
+    }, true);
+  }
     break;
   }
-});
-
-// ------------------FUNCTIONS
+}
 
 // Create new todo item
 function addItem() {
