@@ -1,0 +1,201 @@
+$primary-color: #52796F; //item's font, add item's bg
+$secondary-color: #CAD2C5; //item's bg, list name font;
+$header-color: #354F52; // header
+$body-color: #84A98C; // body bg;
+
+/* pt-sans-700 - latin_cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'),
+       url('../fonts/pt-sans-v11-latin_cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/pt-sans-v11-latin_cyrillic-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  background-color: $body-color;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 100%;
+  min-width: 320px;
+}
+
+/* Style list items */
+.item {
+  background-color: $secondary-color;
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  width: 100%;
+}
+
+/* Style icon buttons */
+.btn {
+  background-color: $secondary-color;
+  border: none;
+  color: $primary-color;
+  cursor: pointer;
+  padding: 12px 16px;
+
+  span {
+    font-size: 1.5em;
+    line-height: unset;
+  }
+}
+
+.items .btn:active {
+  background: radial-gradient(circle, $primary-color 0%, $secondary-color 80%);
+}
+
+/* Style item name */
+input {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  font-size: 1.25em;
+  min-width: 100px;
+  transition: border-bottom 1s;
+  width: 100%;
+}
+
+/* Style according HTML */
+/* --------HEADER-------- */
+header {
+  background-color: $header-color;
+  color: $secondary-color;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+
+  input {
+    border-bottom: 2px solid $header-color;
+  }
+
+  input:focus {
+    border-bottom: 2px solid $secondary-color;
+  }
+}
+
+/* --------MAIN-------- */
+main {
+  padding: 60px 4px 4px;
+}
+
+/* --------ADD SECTION-------- */
+.add {
+  background-color: $primary-color;
+  color: $secondary-color;
+
+  .btn {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+
+  .btn:active {
+    background: radial-gradient(circle, $header-color 0%, $primary-color 80%);
+  }
+
+  input {
+    border-bottom: 2px solid $secondary-color;
+    width: 80%;
+  }
+
+  ::placeholder {
+    color: $secondary-color;
+  }
+}
+
+/* --------ITEMS SECTION-------- */
+.items {
+  margin-top: 5px;
+}
+
+section .item input {
+  border-bottom: 2px solid $secondary-color;
+}
+
+section .item input:focus {
+  border-bottom: 2px solid $header-color;
+}
+
+/* --------COMPLETED ITEMS SECTION-------- */
+h2 {
+  color: $secondary-color;
+  text-align: center;
+}
+
+.hide {
+  opacity: 0;
+}
+
+/* -------MEDIA QUERIES-------- */
+@media only screen and (min-width: 510px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  main {
+    padding: 75px 8px 4px;
+  }
+
+  .item {
+    margin-top: 5px;
+    padding: 4px 0;
+  }
+
+  .items {
+    margin-top: 8px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    margin: 0 auto;
+    width: 592px;
+  }
+}
+
+@media only screen and (min-width: 1360px) {
+  body {
+    font-size: 2em;
+  }
+
+  header {
+    padding: 30px;
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 140px 8px 8px;
+    width: 90%;
+  }
+
+  .item {
+    margin-top: 10px;
+    padding: 16px 0;
+  }
+
+  .items {
+    margin-top: 20px;
+  }
+
+  .items,
+  .done-items {
+    width: 46%;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  body {
+    font-size: 2.75em;
+  }
+}
